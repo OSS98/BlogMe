@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    
+    <!-- Bootstrap 4.5.2 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light" style="margin-bottom: 50px;">
+        <a class="navbar-brand" href="#">
+          <!-- <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> -->
+          BlogMe
+        </a>
+        <a class="btn btn-success" style="text-decoration: none;" href="/addpage">Add-Blog</a>
+
+        
+      </nav>
+
+      <div class="container">
+            <div class="row">
+                <!-- Top View -->
+                <div class="col-12 col-sm-4">
+                    <div class="card" style="width: 100%;margin-bottom: 20px;padding: 15px;">
+                        <!-- <img src="..." class="card-img-top" alt="..."> -->
+                        <h3>ชื่อเรื่อง</h3>
+                        <small>คนแต่ง + เวลา</small>
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <div class="card" style="width: 100%;margin-bottom: 20px;padding: 15px;">
+                        <!-- <img src="..." class="card-img-top" alt="..."> -->
+                        <h3>ชื่อเรื่อง</h3>
+                        <small>คนแต่ง + เวลา</small>
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <div class="card" style="width: 100%;margin-bottom: 20px;padding: 15px;">
+                        <!-- <img src="..." class="card-img-top" alt="..."> -->
+                        <h3>ชื่อเรื่อง</h3>
+                        <small>คนแต่ง + เวลา</small>
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                </div>
+
+                <!-- View -->
+            </div>
+            <hr>
+            <div class="row">
+                <div th:each="content:${AllContent}" class="col-12">
+                  <div class="card" style="width: 100%;margin-bottom: 20px;padding: 15px;">
+                      <h6 th:text="${content.getText()}"></h6> 
+                      <small th:text="${'Author : '+ content.getAuthor() +' ' + content.getDate() +' ' + content.getTime()}"></small>
+                  </div>
+                    
+                </div>
+            </div>
+       </div>
+
+</body>
+</html>

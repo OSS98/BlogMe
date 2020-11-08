@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    
+    <!-- Bootstrap 4.5.2 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light " style="margin-bottom: 50px;">
+        <a class="navbar-brand" href="#">
+          <!-- <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> -->
+          BlogMe
+        </a>
+        <span>
+            <a class="btn btn-success" style="text-decoration: none;" href="/addpage">Add-Blog</a>
+            <a class="btn btn-warning" style="text-decoration: none;" href="/">Log-out</a>
+        </span>
+        
+
+        
+      </nav>
+
+      <div class="container">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>title</th>
+                        <th>text</th>
+                        <th>author</th>
+                        <th>date</th>
+                        <th>time</th>
+                        <th class="text-center"colspan="2">#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="content:${AllContent}">
+                        <td th:text="${content.getId()}"></td>
+                        <td th:text="${content.getTitle()}"></td>
+                        <td th:text="${content.getText()}"></td>
+                        <td th:text="${content.getAuthor()}"></td>
+                        <td th:text="${content.getDate()}"></td>
+                        <td th:text="${content.getTime()}"></td>
+                        <td><a th:href="@{'/del/' + ${content.getId()}}">delete</a></td>
+                        <td><a th:href="@{'/edit/' + ${content.getId()}}">edit</a></td>
+                    </tr>
+                </tbody>
+
+            </table>            
+
+                <!-- View -->
+            </div>
+            <hr>
+       </div>
+
+</body>
+</html>
